@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <title>Old Reddit to LLM Extractor - Settings</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Old Reddit to LLM Extractor Settings</h1>
+
+      <div id="status-container" class="status-container">
+        <div id="status-message">Ready to extract Old Reddit content</div>
+      </div>
+
+      <button id="extract-button" class="action-button">Extract Content</button>
+
+      <div id="extraction-stats" class="extraction-stats hidden">
+        <h3>Extraction Stats:</h3>
+        <ul>
+          <li>Title: <span id="stat-title">-</span></li>
+          <li>Original Post: <span id="stat-post">-</span></li>
+          <li>Comments: <span id="stat-comments">-</span></li>
+        </ul>
+      </div>
+
+      <div id="comment-settings" class="comment-settings hidden">
+        <h3>Comment Settings</h3>
+        <div class="input-group">
+          <label for="comment-count">Number of comments to extract:</label>
+          <input type="number" id="comment-count" min="1" value="200" />
+        </div>
+        <button id="update-comments-button" class="secondary-button">
+          Extract With These Settings
+        </button>
+      </div>
+
+      <div id="llm-prompt-settings" class="comment-settings hidden">
+        <h3>LLM Prompt Settings</h3>
+        <div class="input-group">
+          <label for="llm-prompt">Custom prompt to prepend to content:</label>
+          <textarea
+            id="llm-prompt"
+            rows="4"
+            placeholder="Enter your custom LLM prompt here"
+          ></textarea>
+        </div>
+        <div class="small-text">
+          You can modify the prompt above or reset it to default
+        </div>
+        <button id="reset-prompt-button" class="text-button">
+          Reset to Default
+        </button>
+      </div>
+
+      <div class="footer">
+        <p>Content will be automatically copied to clipboard</p>
+        <p class="small-text">
+          Works only on old.reddit.com - click the extension icon to extract,
+          access settings via the gear icon ⚙️ in the notification
+        </p>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

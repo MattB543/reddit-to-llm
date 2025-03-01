@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Reddit to LLM Extractor",
+  "version": "1.0",
+  "description": "Copy a Reddit post and comment thread in a format optimized for language models (it only works on old.reddit.com). Also check out blogbrain.ai",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "permissions": ["activeTab", "clipboardWrite", "*://*.reddit.com/*"],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/icon-48.png"
+    },
+    "default_title": "Reddit to LLM"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.reddit.com/*"],
+      "js": ["content_scripts/content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  }
+}
